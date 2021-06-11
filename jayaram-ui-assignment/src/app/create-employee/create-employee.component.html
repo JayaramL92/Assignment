@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                <div class="form-group" formGroupName="employeeFormData">
+                    <div class="form-group">
+                            <label for="name">First Name</label>
+                            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                            <span class="help-block"
+                            *ngIf="!employeeForm.get('employeeFormData.firstName').valid && employeeForm.get('employeeFormData.firstName').touched">
+                            <span class="help-block" *ngIf="employeeForm.get('employeeFormData.firstName').errors['required']">
+                                This field is required!
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                        <span class="help-block"
+                            *ngIf="!employeeForm.get('employeeFormData.lastName').valid && employeeForm.get('employeeFormData.lastName').touched">
+                            <span class="help-block" *ngIf="employeeForm.get('employeeFormData.lastName').errors['required']">
+                                This field is required!
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="emailId">Email Id</label>
+                            <input type="text" class="form-control" id="emailId" formControlName="emailId">
+                        </div>
+                        <span class="help-block"
+                            *ngIf="!employeeForm.get('employeeFormData.emailId').valid && employeeForm.get('employeeFormData.emailId').touched">
+                            Please enter valid EmailId!
+                        </span>
+                    </div>
+                    <div class="form-group">
+                            <label for="name">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                            <span class="help-block"
+                            *ngIf="!employeeForm.get('employeeFormData.phoneNumber').valid && employeeForm.get('employeeFormData.phoneNumber').touched">
+                            <span class="help-block" *ngIf="employeeForm.get('employeeFormData.phoneNumber').errors['required']">
+                                This field is required!
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <span class="help-block" *ngIf="!employeeForm.valid && employeeForm.touched">
+                    Please enter valid data!
+                </span>
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" [disabled]="!employeeForm.valid" type="submit">Submit</button>
+                        <button type="button" class="btn btn-danger" (click)="gotoList()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
